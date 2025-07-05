@@ -42,11 +42,11 @@ All services are containerized and managed with Docker Compose and Kubernetes fo
       │   ├── docker-compose.yml (Kafka + MySQL)
       │
       └── k8s/
-      ├── producer-deployment.yml
-      ├── consumer-deployment.yml
-      ├── mysql-deployment.yml
-      ├── kafka-deployment.yml
-      ├── gateway-ingress.yml
+            ├── producer-deployment.yml
+            ├── consumer-deployment.yml
+            ├── mysql-deployment.yml
+            ├── kafka-deployment.yml
+            ├── gateway-ingress.yml
 
 ```
 
@@ -113,10 +113,10 @@ All services are containerized and managed with Docker Compose and Kubernetes fo
 
 ### 🌐 Services will be available on:
 
-- **API Gateway**: [http://localhost:8080](http://localhost:8080)
-- **Producer Service**: [http://localhost:8081](http://localhost:8081)
-- **Consumer Service**: [http://localhost:8082](http://localhost:8082)
-- **Hello Service**: [http://localhost:8083](http://localhost:8083)
+- **API Gateway**: `http://localhost:8080`
+- **Producer Service**: `http://localhost:8081`
+- **Consumer Service**: `http://localhost:8082`
+- **Hello Service**: `http://localhost:8083`
 - **Kafka Broker**: `localhost:9092`
 - **MySQL Database**: `localhost:3307` (mapped to container's port `3306`)
 
@@ -171,4 +171,5 @@ All Kubernetes manifests are in the `k8s/` directory.
 ## 👨‍💻 Author
 
 - **Pranav Singh Solanki**
-  Feel free to open issues or contribute to the project!
+
+##### Feel free to open issues or contribute to the project!

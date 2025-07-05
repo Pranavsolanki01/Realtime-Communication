@@ -26,7 +26,8 @@ All services are containerized and managed with Docker Compose and Kubernetes fo
 - **Database**: MySQL
 - **Gateway**: Spring Cloud Gateway
 
-```+------------------------+
+```
+                          +------------------------+
                           |      API Gateway       |
                           |    (Spring Cloud)      |
                           +-----------+------------+

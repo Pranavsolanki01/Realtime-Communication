@@ -1,0 +1,64 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local
+  http:
+    codecs:
+      max-in-memory-size: 10MB
+
+  main:
+    web-application-type: reactive
+
+---
+# Local Development Profile
+spring:
+  config:
+    activate:
+      on-profile: local
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: hello-service
+              uri: http://localhost:8083
+              predicates:
+                - Path=/api/hello/**
+
+            - id: producer-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/producer/**
+
+            - id: consumer-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/messages/**
+
+---
+# Docker Profile
+spring:
+  config:
+    activate:
+      on-profile: docker
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: hello-service
+              uri: http://hello-service:8083
+              predicates:
+                - Path=/api/hello/**
+
+            - id: producer-service
+              uri: http://producer-service:8081
+              predicates:
+                - Path=/api/producer/**
+
+            - id: consumer-service
+              uri: http://consumer-service:8082
+              predicates:
+                - Path=/api/messages/**

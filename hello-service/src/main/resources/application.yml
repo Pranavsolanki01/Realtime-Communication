@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+spring:
+  profiles:
+    active: local
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+---
+# Local Development Profile
+spring:
+  config:
+    activate:
+      on-profile: local
+  kafka:
+    bootstrap-servers: localhost:9092
+
+---
+# Docker Profile
+spring:
+  config:
+    activate:
+      on-profile: docker
+  kafka:
+    bootstrap-servers: ms-kafka:9092

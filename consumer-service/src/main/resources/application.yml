@@ -1,0 +1,52 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: local
+  kafka:
+    consumer:
+      group-id: hello-consumer-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      missing-topics-fatal: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+---
+# Local Development Profile
+spring:
+  config:
+    activate:
+      on-profile: local
+  kafka:
+    bootstrap-servers: localhost:9092
+  datasource:
+    url: jdbc:mysql://localhost:3307/hello_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+---
+# Docker Profile
+spring:
+  config:
+    activate:
+      on-profile: docker
+  kafka:
+    bootstrap-servers: ms-kafka:9092
+  datasource:
+    url: jdbc:mysql://ms-mysql:3306/hello_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+      minimum-idle: 1
+      idle-timeout: 300000

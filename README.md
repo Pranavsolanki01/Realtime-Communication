@@ -17,6 +17,39 @@ All services are containerized and managed with Docker Compose and Kubernetes fo
 
 ---
 
+## 📂 Folder Structure
+
+```
+      hello-app/
+      │
+      ├── producer-service/
+      │   ├── src/...
+      │   ├── Dockerfile
+      │
+      ├── consumer-service/
+      │   ├── src/...
+      │   ├── Dockerfile
+      │
+      ├── hello-service/
+      │   ├── src/...
+      │   ├── Dockerfile
+      │
+      ├── api-gateway/
+      │   ├── src/...
+      │   ├── Dockerfile
+      │
+      ├── docker/
+      │   ├── docker-compose.yml (Kafka + MySQL)
+      │
+      └── k8s/
+      ├── producer-deployment.yml
+      ├── consumer-deployment.yml
+      ├── mysql-deployment.yml
+      ├── kafka-deployment.yml
+      ├── gateway-ingress.yml
+
+```
+
 ## 🧱 Architecture
 
 ### Components:
@@ -93,14 +126,15 @@ All Kubernetes manifests are in the `k8s/` directory.
 
 ### 📂 Kubernetes Files
 
-``
-k8s/
-├── producer-deployment.yml
-├── consumer-deployment.yml
-├── hello-deployment.yml
-├── kafka-deployment.yml
-├── mysql-deployment.yml
-└── gateway-ingress.yml
+```
+      k8s/
+      ├── producer-deployment.yml
+      ├── consumer-deployment.yml
+      ├── hello-deployment.yml
+      ├── kafka-deployment.yml
+      ├── mysql-deployment.yml
+      └── gateway-ingress.yml
+```
 
 ### ⚙️ Steps to Deploy
 

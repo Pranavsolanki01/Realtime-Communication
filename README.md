@@ -110,6 +110,8 @@ All services are containerized and managed with Docker Compose and Kubernetes fo
    ```bash
    docker compose up --build -d
    ```
+####  Steps to Run Locally (Outside of the Docker)
+
 
 ### 🌐 Services will be available on:
 

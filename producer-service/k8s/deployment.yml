@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producer-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producer-service
+  template:
+    metadata:
+      labels:
+        app: producer-service
+    spec:
+      containers:
+      - name: producer-service
+        image: producer-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9091
+        env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+        resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

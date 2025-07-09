@@ -35,7 +35,7 @@ spring:
             - id: consumer-service
               uri: http://localhost:8082
               predicates:
-                - Path=/api/messages/**
+                - Path=/api/consumer/**
 
 ---
 # Docker Profile
@@ -61,4 +61,30 @@ spring:
             - id: consumer-service
               uri: http://consumer-service:8082
               predicates:
-                - Path=/api/messages/**
+                - Path=/api/consumer/**
+
+---
+# Kubernetes Profile
+spring:
+  config:
+    activate:
+      on-profile: k8s
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: hello-service
+              uri: http://hello-service:8083
+              predicates:
+                - Path=/api/hello/**
+
+            - id: producer-service
+              uri: http://producer-service:8081
+              predicates:
+                - Path=/api/producer/**
+
+            - id: consumer-service
+              uri: http://consumer-service:8082
+              predicates:
+                - Path=/api/consumer/**

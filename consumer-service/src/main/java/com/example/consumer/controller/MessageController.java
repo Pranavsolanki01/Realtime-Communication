@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/messages")
+@RequestMapping("/api/consumer")
 public class MessageController {
 
     private final MessageRepository messageRepository;
@@ -16,7 +16,7 @@ public class MessageController {
         this.messageRepository = messageRepository;
     }
 
-    @GetMapping
+    @GetMapping("/messages")
     public List<MessageEntity> getAllMessages() {
         return messageRepository.findAll();
     }

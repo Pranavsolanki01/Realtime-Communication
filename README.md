@@ -1,4 +1,4 @@
-# 👋 Hello Application
+# 👋 Realtime-Communication
 
 A cloud-native microservices application built using Spring Boot, Apache Kafka, MySQL, Docker, and Kubernetes. This project demonstrates the fundamentals of distributed systems using event-driven architecture, REST APIs, and modern container orchestration.
 

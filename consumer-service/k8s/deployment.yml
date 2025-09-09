@@ -17,7 +17,7 @@ spec:
           image: consumer-service:latest
           imagePullPolicy: Never
           ports:
-          - containerPort: 9092
+          - containerPort: 9081
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: k8s

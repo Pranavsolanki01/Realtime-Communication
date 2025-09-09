@@ -17,7 +17,7 @@ spec:
         image: api-gateway:latest
         imagePullPolicy: Never
         ports:
-        - containerPort: 9090
+        - containerPort: 9080
         env:
             - name: SPRING_PROFILES_ACTIVE
               value: k8s

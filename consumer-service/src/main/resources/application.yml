@@ -46,19 +46,3 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
----
-# Kubernetes Profile
-spring:
-  config:
-    activate:
-      on-profile: k8s
-  kafka:
-    bootstrap-servers: ms-kafka:9092
-  datasource:
-    url: jdbc:mysql://ms-mysql:3306/hello_db
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      connection-timeout: 60000
-      maximum-pool-size: 5

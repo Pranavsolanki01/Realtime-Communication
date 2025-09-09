@@ -1,21 +1,21 @@
 server:
-  port: 9090
+  port: 9080
 
 spring:
   cloud:
     gateway:
       routes:
         - id: hello-service
-          uri: http://hello-service:9093
+          uri: http://hello-service:9083
           predicates:
             - Path=/api/hello/**
 
         - id: producer-service
-          uri: http://producer-service:9091
+          uri: http://producer-service:9081
           predicates:
             - Path=/api/producer/**
 
         - id: consumer-service
-          uri: http://consumer-service:9092
+          uri: http://consumer-service:9080
           predicates:
             - Path=/api/consumer/**
